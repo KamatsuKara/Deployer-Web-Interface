@@ -56,5 +56,6 @@ app.get("/api/logs/:filename", (req, res) => {
   res.sendFile(path.resolve(filePath));
 });
 
-const PORT = 3001;
+const args = process.argv.slice(2);
+const PORT = args[0] || 3001;
 app.listen(PORT, () => console.log(`Backend on http://localhost:${PORT}`));
