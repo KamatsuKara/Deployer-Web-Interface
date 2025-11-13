@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3001/api";
+const API_URL = "http://baptiste-candela.fr/Deployer-Web-Interface-API";
 
 // === GESTION DU JSON ===
 async function loadConfig() {

@@ -8,13 +8,13 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const CONFIG_PATH = "../test/projects.json";
-const LOG_DIR = "../test/logs";
-const UPDATE_COMMAND = "ls -a";
-const COMMAND_DIR = "../test";
+const CONFIG_PATH = "Projects-Manager/projects.json";
+const LOG_DIR = "Projects-Manager/logs";
+const UPDATE_COMMAND = "python3 projects_manager.py";
+const COMMAND_DIR = "Projects-Manager/";
 
 // Lire le JSON
-app.get("/api/config", (req, res) => {
+app.get("/config", (req, res) => {
   try {
     const data = fs.readFileSync(CONFIG_PATH, "utf-8");
     res.json(JSON.parse(data));
@@ -24,7 +24,7 @@ app.get("/api/config", (req, res) => {
 });
 
 // Écrire le JSON
-app.post("/api/config", (req, res) => {
+app.post("/config", (req, res) => {
   try {
     fs.writeFileSync(CONFIG_PATH, JSON.stringify(req.body, null, 2));
     res.send("Config updated!");
@@ -34,7 +34,7 @@ app.post("/api/config", (req, res) => {
 });
 
 // Exécuter la commande de mise à jour
-app.post("/api/update", (req, res) => {
+app.post("/update", (req, res) => {
   exec(UPDATE_COMMAND, { cwd: COMMAND_DIR }, (error, stdout, stderr) => {
     if (error) return res.status(500).send(stderr);
     res.send(stdout || "Command executed successfully!");
@@ -42,7 +42,7 @@ app.post("/api/update", (req, res) => {
 });
 
 // Lister les logs
-app.get("/api/logs", (req, res) => {
+app.get("/logs", (req, res) => {
   fs.readdir(LOG_DIR, (err, files) => {
     if (err) return res.status(500).send("Unable to read logs directory");
     res.json(files);
@@ -50,7 +50,7 @@ app.get("/api/logs", (req, res) => {
 });
 
 // Lire un log
-app.get("/api/logs/:filename", (req, res) => {
+app.get("/logs/:filename", (req, res) => {
   const filePath = path.join(LOG_DIR, req.params.filename);
   if (!fs.existsSync(filePath)) return res.status(404).send("File not found");
   res.sendFile(path.resolve(filePath));
