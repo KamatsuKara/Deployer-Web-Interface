@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deployer Dashboard</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <h1>Deployer Dashboard</h1>
+
+  <section id="config">
+    <h2>JSON File</h2>
+    <textarea id="json-editor" rows="10" cols="80"></textarea><br />
+    <button id="save-json">Save</button>
+  </section>
+
+  <section id="update">
+    <h2>Update Projects</h2>
+    <button id="run-update">Run Update</button>
+    <pre id="update-output"></pre>
+  </section>
+
+  <section id="logs">
+    <h2>Logs</h2>
+    <ul id="log-list"></ul>
+    <pre id="log-content"></pre>
+  </section>
+
+  <script type="module" src="/main.js"></script>
+</body>
+</html>
