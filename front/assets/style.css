@@ -24,7 +24,7 @@ textarea {
   width: 100%;
   font-family: monospace;
   background: #111;
-  color: #d81919;
+  color: #f8f9fa;
   border: 1px solid #333;
 }
 
@@ -38,7 +38,7 @@ button {
 
 pre {
   background: #111;
-  color: #d81919;
+  color: #f8f9fa;
   padding: 1rem;
   overflow-x: auto;
 }
