@@ -10,7 +10,7 @@ app.use(express.json());
 
 const CONFIG_PATH = "/home/baptiste/Projects-Manager/projects.json";
 const LOG_DIR = "/home/baptiste/Projects-Manager/logs";
-const UPDATE_COMMAND = "python3 projects_manager.py";
+const UPDATE_COMMAND = "echo NOP" //"python3 projects_manager.py";
 const COMMAND_DIR = "/home/baptiste/Projects-Manager/";
 
 // Lire le JSON
