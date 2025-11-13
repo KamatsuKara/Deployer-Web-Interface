@@ -58,4 +58,4 @@ app.get("/logs/:filename", (req, res) => {
 
 const args = process.argv.slice(2);
 const PORT = args[0] || 3001;
-app.listen(PORT, () => console.log(`Backend on http://localhost:${PORT}`));
+app.listen(PORT, () => console.log(`Backend Running on port ${PORT}`));
